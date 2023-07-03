@@ -1,0 +1,35 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer utilities {
+  @variants responsive {
+    /* Hide scrollbar for Chrome, Safari and Opera */
+    .no-scrollbar::-webkit-scrollbar {
+      display: none;
+    }
+
+    /* Hide scrollbar for IE, Edge and Firefox */
+    .no-scrollbar {
+      -ms-overflow-style: none; /* IE and Edge */
+      scrollbar-width: none; /* Firefox */
+    }
+  }
+}
+
+html {
+  font-family: "Permanent Marker", cursive;
+  color: rgb(245, 245, 245);
+  height: 115%;
+}
+
+.landing {
+  height: 101%;
+  
+  background: url("./assets/bg2.webp");
+  background-size: cover;
+  background-position-y: center;
+}
+.flower {
+  font-family: "Ysabeau SC", sans-serif;
+}
