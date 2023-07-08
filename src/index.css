@@ -17,6 +17,7 @@
   }
 }
 
+
 html {
   font-family: "Permanent Marker", cursive;
   color: rgb(245, 245, 245);
@@ -32,4 +33,17 @@ html {
 }
 .flower {
   font-family: "Ysabeau SC", sans-serif;
+}
+
+.branches {
+  
+  background: url("./assets/dragon.png"), linear-gradient(rgba(0, 0, 0, 0.616), rgba(0,0,0,0.2));
+  background-size: cover;
+  background-position-y: center;
+}
+.navbar {
+  
+  background: url("./assets/dragon2.png"), linear-gradient(rgba(0, 0, 0, 0.726), rgba(0, 0, 0, 0.863));
+  background-size: cover;
+  background-position-y: bottom;
 }
