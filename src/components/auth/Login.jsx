@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { setLogin } from "../../state";
 import { useNavigate } from "react-router-dom";
 
-const USER_REGEX = /^[A-z][A-z0-9-_]{3,23}$/;
+const USER_REGEX = /^[A-z][A-z0-9-_]{3,11}$/;
 const PWD_REGEX = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%]).{8,24}$/;
 const EMAIL_REGEX = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
 
@@ -104,7 +104,7 @@ const Login = () => {
         )}
         <p className="text-[1.5rem] flower font-bold">Username</p>
         <p className={`flower text-[1rem] ${isLogin && "hidden"} text-left`}>
-          - 4 to 24 characters.
+          - 4 to 12 characters.
           <br />
           - Must begin with a letter.
           <br />- Letters, numbers, underscores, hyphens allowed.

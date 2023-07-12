@@ -43,7 +43,35 @@ html {
 }
 .navbar {
   
-  background: url("./assets/dragon2.png"), linear-gradient(rgba(0, 0, 0, 0.726), rgba(0, 0, 0, 0.863));
+  background: url("./assets/dragon2.png"), linear-gradient(rgba(13, 18, 29, 0.849), rgba(13, 18, 29, 0.863));
   background-size: cover;
   background-position-y: bottom;
+}
+
+/* CSS code */
+.progress-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 20px;
+}
+.progress-bar {
+  width: 0%;
+  height: 20px;
+  margin-bottom: 10px;
+  background-color: blue;
+}
+.progress-value {
+  font-size: 18px;
+}
+button {
+  font-size: 18px;
+  padding: 10px;
+  margin: 5px;
+  border: none;
+  border-radius: 5px;
+  background-color: lightgray;
+}
+button:disabled {
+  background-color: gray;
 }

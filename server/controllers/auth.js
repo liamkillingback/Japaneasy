@@ -11,7 +11,11 @@ export const register = async (req, res) => {
     const passwordHash = await bcrypt.hash(password, salt);
     console.log(req.body);
     console.log(passwordHash);
-
+    const isExistingUsername = await User.findOne({username: username})
+    if (isExistingUsername) {
+      res.status(400).json({ message: "user already exists with that username"})
+      return
+    }
     const newUser = User({
       username,
       email,
