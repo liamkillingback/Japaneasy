@@ -16,10 +16,7 @@ const Navbar = () => {
 
       </Link>
         <div className='flex items-center text-center justify-center'>
-            <div className='flex flex-row mr-10 h-full items-center'>
-              <div className='w-80 border-[3px] border-[#FF851B] mr-3 rounded-full h-10 lg:block hidden'></div>
-              <p className='text-[#FF851B] text-5xl lg:block hidden'>1</p>
-            </div>
+            
             <Link to={"/account"} className='md:text-5xl text-2xl md:mr-20  p-3 text-[#FF851B] hover:bg-[#ff851b31] transition-all rounded-2xl'>Account</Link>
 
         </div>

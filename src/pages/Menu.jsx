@@ -4,31 +4,30 @@ import { tiger, octopus, crossedFlags, account, branches, koi, dragon2 } from '.
 import { useSelector } from "react-redux";
 
 const btn_class =
-  "bg-[#FF851B] sm:w-[300px] sm:h-[300px] w-[150px] h-[150px] h-20 rounded-2xl hover:scale-105 transition-all sm:text-[2.5rem] text-[1.1rem] text-black relative text-3xl text-center flex items-center justify-center";
+  "m-5 bg-[#FF851B] w-[300px] h-20 rounded-full hover:scale-110 transition-all text-black text-3xl text-center flex items-center justify-center";
 
 const navLinks = [
-  {href: "/learning", title: "Start Learning", img: koi},
-  {href: "/account", title: "Account", img: account},
-  {href: "/leaderboard", title: "Leaderboard", img: crossedFlags},
-  {href: "/information", title: "Information", img: octopus},
+  {href: "/learning", title: "Start Learning"},
+  {href: "/account", title: "Account"},
+  {href: "/leaderboard", title: "Leaderboard"},
+  {href: "/information", title: "Information"},
 ]
   const Menu = () => {
   const isLoggedIn = Boolean(useSelector((state) => state.token));
   return (
     <>
     <div className="w-full h-full items-center justify-center flex absolute top-0 left-0 ">
-      <div className="w-[90%] sm:h-[85%] h-[78%] sm:mt-24 rounded-xl mb-10 mt-24 items-center justify-center bg-[rgba(13,18,29,0.96)]">
+      <div className="false md:w-[60%] w-[90%] sm:h-[85%] h-[78%] sm:mt-24 rounded-xl mb-10 mt-12 flex flex-col items-center justify-center fixed bg-[rgba(13,18,29,0.96)]">
       <div className="flex flex-col h-full w-full overflow-scroll no-scrollbar">
         <div className="w-full text-center ">
-          <h1 className="sm:px-40 text-[#FF851B] text-[4rem]">Menu</h1>
+          <h1 className="sm:px-40 text-[#FF851B] sm:text-[4rem] text-[2rem]">Menu</h1>
+          <hr className="bg-[#ff851B]" />
         </div>
-        <div className="flex flex-wrap w-full gap-5 justify-center mt-5">
+        <div className="flex flex-col justify-center items-center mt-5">
+        <p className="sm:text-[2.5rem] text-[1.3rem]">こんにちは!</p>
         {navLinks.map((navLink, index) => (
           <Link key={index} to={navLink.href} className={`${btn_class}`}>
-            <div className="absolute p-2 flex h-full w-full justify-center">
-              <p className="absolute  w-full text-center rounded-2xl top-0 px-2">{navLink.title}</p>
-              <img className="sm:h-[200px] h-[100px] absolute bottom-2" src={navLink.img} alt="" />
-            </div>
+            {navLink.title}
           </Link>
         ))}
         </div>
@@ -37,9 +36,6 @@ const navLinks = [
             Create an account to track your progress, level up and review
             learned words!
           </p>
-        </div>
-        <div className="h-[400px] overflow-hidden">
-          <img src={dragon2} alt="" />
         </div>
         
       </div>

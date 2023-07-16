@@ -17,11 +17,23 @@ import tiger from './tiger.png';
 import account from './account.png';
 import crossedFlags from './crossedFlags.png';
 import octopus from './octopus.png';
-
-
+import egg from './egg.png';
+import flower from './flower.png';
+import mask from './mask.png';
+import racoon from './racoon.png';
+import rice from './rice.png';
+import sushi from './sushi.png';
+import waves from './waves.png';
 
 
 export {
+    egg,
+    flower,
+    mask,
+    racoon,
+    rice,
+    sushi,
+    waves,
     dragon2,
     branches,
     faceless,

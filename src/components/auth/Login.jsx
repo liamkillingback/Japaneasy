@@ -158,7 +158,7 @@ const Login = () => {
       </form>
       <button
         onClick={() => setIsLogin(!isLogin)}
-        className="text-[1.5rem] mt-5 text-white underline flower hover:text-[#FF851B] transition-all"
+        className="text-[1.5rem] mt-5 text-white underline flower hover:text-[#FF851B] bg-blue-600 transition-all"
       >{`${!isLogin ? "Login" : `${submitting ? "submitting" : "Register"}`}`}</button>
     </div>
   );

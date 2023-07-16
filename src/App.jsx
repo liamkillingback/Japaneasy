@@ -13,7 +13,7 @@ function App() {
     <>
       <BrowserRouter>
         <Navbar />
-        <div className="landing fixed w-screen items-center justify-center min-h-screen sm:pb-0 mb-20">
+        <div className="landing fixed w-screen items-center justify-center min-h-screen">
           <Ramen />
           <Routes>
             <Route path="/" element={<Home />} />

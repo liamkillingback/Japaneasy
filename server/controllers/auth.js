@@ -11,10 +11,12 @@ export const register = async (req, res) => {
     const passwordHash = await bcrypt.hash(password, salt);
     console.log(req.body);
     console.log(passwordHash);
-    const isExistingUsername = await User.findOne({username: username})
+    const isExistingUsername = await User.findOne({ username: username });
     if (isExistingUsername) {
-      res.status(400).json({ message: "user already exists with that username"})
-      return
+      res
+        .status(400)
+        .json({ message: "user already exists with that username" });
+      return;
     }
     const newUser = User({
       username,
@@ -29,8 +31,8 @@ export const register = async (req, res) => {
   }
 };
 export const login = async (req, res) => {
-    // console.log("login path reached");
-    // res.status(200).json({ message: "login path success" });
+  // console.log("login path reached");
+  // res.status(200).json({ message: "login path success" });
   try {
     const { username, password } = req.body;
     const user = await User.findOne({ username: username });
@@ -45,3 +47,29 @@ export const login = async (req, res) => {
     res.status(500).json({ message: error.message });
   }
 };
+
+export const update_words = async (req, res) => {
+  try {
+    let { wrongWords, score, learnedWords, username } = req.body;
+    let user = await User.findOne({ username: username})
+    if (!user) return res.status(400).json({message: "User does not exist"})
+    user.learnedWords = [...user.learnedWords, ...learnedWords]
+    user.hardWords = [...user.hardWords, ...wrongWords];
+    user.points = user.points += score;
+    await user.save();
+    res.status(200).json({ message: "success", user });
+  } catch (error) {
+    res.status(500).json(error);
+  }
+};
+
+export const get_users = async (req, res) => {
+  try {
+    const users = await User.find()
+    console.log(users)
+    res.status(200).json({message: "success", users: users});
+
+  } catch (error) {
+    res.status(500).json(error)
+  }
+}

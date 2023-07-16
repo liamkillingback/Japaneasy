@@ -111,11 +111,9 @@ const HiriganaToEnglish = (data) => {
         <button
           onClick={() => {
             {
-              (data.word + 1) % 5 === 0
-                ? data.finishTest()
-                : data.setWord((data.word + 1) % 5);
-              wrongAudio.play();
               data.setWrongWords([...data.wrongWords, japanese_elements]);
+              (data.word + 1) % 5 !== 0 && data.setWord((data.word + 1) % 5);
+              wrongAudio.play();
             }
           }}
           className={`rounded-2xl bg-[#FF851B] sm:m-5 sm:text-3xl p-2 mx-1 mb-1 sm:p-4 cursor-pointer hover:text-[rgba(26,36,58,0.96)] transition-all hover:scale-105`}

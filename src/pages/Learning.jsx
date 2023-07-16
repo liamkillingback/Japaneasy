@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { Selection, Card, HiriganaToEnglishCard, Results } from "../components";
 import axios from "axios";
+import { useSelector, useDispatch } from "react-redux";
+import { refreshUser } from "../state";
 
 import Loader from "../components/LoaderSpinner";
 
@@ -13,15 +15,18 @@ const Learning = () => {
   const [loading, setLoading] = useState(true);
   const [isTestStarted, setIsTestStarted] = useState(false);
   const [isTestFinished, setIsTestFinished] = useState(false);
+  const dispatch = useDispatch();
+  const token = useSelector((state) => state.token);
+  const user = useSelector((state) => state.user)
 
   useEffect(() => {
     getWords();
   }, []);
   useEffect(() => {
-    console.log(wrongWords);
+    if (wrongWords.length + learnedWords.length === 5) finishTest();
   }, [wrongWords]);
   useEffect(() => {
-    console.log(learnedWords);
+    if (wrongWords.length + learnedWords.length === 5) finishTest();
   }, [learnedWords]);
 
   //Gets words from server
@@ -50,8 +55,25 @@ const Learning = () => {
     setWordList(shuffled_words);
     setIsTestStarted(true);
   };
-  const finishTest = () => {
+
+  const finishTest = async () => {
+    try {
+      if (token) {
+        let response = await axios.post("http://localhost:8080/auth/update_words", {
+        learnedWords: learnedWords,
+        wrongWords: wrongWords,
+        score: score,
+        username: user.username
+      })
+      console.log(response)
+      dispatch(refreshUser({user: response.data.user}))
+      }
+      
+    } catch (error) {
+      alert(error)
+    }
     setIsTestFinished(true);
+
   };
 
   return (
