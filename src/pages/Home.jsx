@@ -15,10 +15,10 @@ const Home = () => {
           
          w-[90%] h-[75%] p-1 sm:mt-24 mt-28 rounded-xl flex flex-col items-center fixed text-[#FF851B] bg-[rgba(13,18,29,0.88)] overflow-y-scroll no-scrollbar sm:mb-0 mb-20`}
       >
-        <h1 className="sm:text-[4rem] text-[1.5rem] rounded-full p-5 text-center">
+        <h1 className="sm:text-[3rem] text-[1.5rem] rounded-full p-5 text-center">
           Welcome to Japanezy!
         </h1>
-        <h1 className="sm:text-[2.5rem] text-[1.3rem] flower text-white text-center float-left">
+        <h1 className="sm:text-[2rem] text-[1.3rem] flower text-white text-center float-left">
           Enhance your Japanese language skills by focusing on the most
           frequently utilized words in Japan. Japanezy offers you an
           opportunity to learn these essential components, which constitute

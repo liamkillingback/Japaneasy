@@ -44,8 +44,8 @@ const Profile = () => {
         <p className="text-[#FF851B] text-5xl">{userLevel}</p>
       </div>
       <div className="w-full flex flex-wrap sm:gap-10 gap-5 items-center justify-center">
-        <p className={pStyle}>Learned words: {user?.learnedWords.length}</p>
-        <p className={pStyle}>Hard words: {user?.hardWords.length}</p>
+        <p className={pStyle}>Learned words: {user?.learnedWords?.length}</p>
+        <p className={pStyle}>Hard words: {user?.hardWords?.length}</p>
         <p className={pStyle}>Score: {user?.points}</p>
       </div>
       <div className="flex flex-wrap sm:gap-8 gap-2 justify-center">

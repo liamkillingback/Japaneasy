@@ -3,7 +3,7 @@ import jwt from "jsonwebtoken";
 import User from "../models/User.js";
 
 export const register = async (req, res) => {
-  // console.log("register path reached")
+  console.log("register path reached")
   // res.status(200).json({message: "register path success"});
   try {
     const { username, email, password } = req.body;
