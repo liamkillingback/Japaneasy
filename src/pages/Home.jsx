@@ -18,7 +18,7 @@ const Home = () => {
         <h1 className="sm:text-[4rem] text-[1.5rem] rounded-full p-5 text-center">
           Welcome to Japanezy!
         </h1>
-        <h1 className="sm:text-[2.5rem] text-[1.3rem] flower text-white text-center float-left">
+        <h2 className="sm:text-[2rem] text-[1.3rem] flower text-white text-center float-left md:px-[10%]">
           Enhance your Japanese language skills by focusing on the most
           frequently utilized words in Japan. Japanezy offers you an
           opportunity to learn these essential components, which constitute
@@ -28,7 +28,7 @@ const Home = () => {
           provide the option to familiarize yourself with word and sentence
           representations as typically encountered in Japan, incorporating
           hiragana, kanji, and katakana.
-        </h1>
+        </h2>
         <button className="text-[2rem] text-black bg-[#5ce632] p-3 rounded-full m-10 hover:scale-105 transition-all" onClick={() => navigate('/menu')}>Get started!</button>
       </div>
     </div>

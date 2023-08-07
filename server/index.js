@@ -4,9 +4,9 @@ import * as dotenv from "dotenv";
 import mongoose from "mongoose";
 import bodyParser from "body-parser";
 import openaiRoutes from "./routes/openai.js";
-import csvDataRoutes from './routes/csvData.js'
+import csvDataRoutes from "./routes/csvData.js";
 import ChatLog from "./models/ChatLog.js";
-import authRoutes from './routes/authRoutes.js'
+import authRoutes from "./routes/authRoutes.js";
 
 //configurations
 const app = express();
@@ -19,8 +19,7 @@ app.use(express.json());
 //Routes
 app.use("/get", jsonParser, csvDataRoutes);
 app.use("/openai", jsonParser, openaiRoutes);
-app.use("/auth", jsonParser, authRoutes)
-
+app.use("/auth", jsonParser, authRoutes);
 
 // app.listen(PORT, () => {
 //   console.log(`Listening on port ${PORT}`);
@@ -30,11 +29,10 @@ app.use("/auth", jsonParser, authRoutes)
 try {
   mongoose.connect(process.env.MONGO_URL).then(
     app.listen(PORT, () => {
-        console.log("Mongoose connection successful")
+      console.log("Mongoose connection successful");
       console.log(`Listening on port ${PORT}`);
     })
   );
 } catch (error) {
   console.log(error);
 }
-

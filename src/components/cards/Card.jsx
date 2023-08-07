@@ -4,11 +4,10 @@ import { toRomaji } from "wanakana";
 
 const Card = (data) => {
   const [sentence, setSentence] = useState(false);
-
+  let length = data.listLength
+  console.log(data)
   // Configuring and editing format of japanese content and text to speech
   let japanese_elements = data.props;
-  console.log(japanese_elements);
-  console.log(japanese_elements[4]);
   japanese_elements[4] = japanese_elements[4]
     .replace("<b>", "")
     .replace("</b>", "");
@@ -103,7 +102,7 @@ const Card = (data) => {
         </button>
         <button
           onClick={() => {
-            data.setWord((data.word + 1) % 5);
+            data.setWord((data.word + 1) % length);
             setSentence(false);
           }}
           className={` rounded-2xl bg-[#FF851B] sm:m-5 sm:text-3xl p-2 mx-1 mb-1 sm:p-4 cursor-pointer hover:text-[rgba(26,36,58,0.96)] transition-all hover:scale-105`}

@@ -6,3 +6,4 @@ export { default as Information } from './Information';
 export { default as Menu } from './Menu';
 export { default as LoginPage } from './LoginPage';
 export { default as Review } from './Review';
+export { default as AllWords } from './AllWords';

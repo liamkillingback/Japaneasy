@@ -17,28 +17,29 @@ const Learning = () => {
   const [isTestFinished, setIsTestFinished] = useState(false);
   const dispatch = useDispatch();
   const token = useSelector((state) => state.token);
-  const user = useSelector((state) => state.user)
+  const user = useSelector((state) => state.user);
 
   useEffect(() => {
     getWords();
   }, []);
   useEffect(() => {
     if (wrongWords.length + learnedWords.length === 5) finishTest();
-  }, [wrongWords]);
-  useEffect(() => {
-    if (wrongWords.length + learnedWords.length === 5) finishTest();
-  }, [learnedWords]);
+    else if (wrongWords.length + learnedWords.length === 5) finishTest();
+    console.log("test")
+  }, [wrongWords, learnedWords]);
 
   //Gets words from server
   const getWords = async () => {
-      try {
-        // const response = await axios.get("https://japanezy.onrender.com/get/randomxWords")
+    try {
+      // const response = await axios.get("https://japanezy.onrender.com/get/randomxWords")
       const response = await axios.get(
         "http://localhost:8080/get/randomxWords"
       );
       setWordList(response.data.records);
       setLoading(false);
-    } catch (error) { alert(error) }
+    } catch (error) {
+      alert(error);
+    }
   };
 
   //function to shuffle wordList
@@ -56,30 +57,32 @@ const Learning = () => {
     setIsTestStarted(true);
   };
 
-  const finishTest = async () => {
+  async function finishTest() {
     try {
       if (token) {
-        let response = await axios.post("http://localhost:8080/auth/update_words", {
-        learnedWords: learnedWords,
-        wrongWords: wrongWords,
-        score: score,
-        username: user.username
-      })
-      console.log(response)
-      dispatch(refreshUser({user: response.data.user}))
+        let response = await axios.post(
+          "http://localhost:8080/auth/update_words",
+          {
+            learnedWords: learnedWords,
+            hardWords: wrongWords,
+            points: score,
+            username: user.username,
+          }
+        );
+        console.log(response);
+        dispatch(refreshUser({ user: response.data.user }));
       }
-      
     } catch (error) {
-      alert(error)
+      alert(error);
+      console.log(error);
+      console.log(error);
     }
     setIsTestFinished(true);
-
-  };
+  }
 
   return (
     <div className="w-full h-full items-center justify-center flex absolute top-0 left-0">
       <div className="md:w-[80%] w-[95%] h-[74%] sm:mt-24 rounded-3xl mb-10 mt-10 items-center flex justify-center flex-col bg-[rgba(13,18,29,0.96)]">
-        
         {isTestFinished ? (
           <Results
             score={score}
@@ -90,6 +93,7 @@ const Learning = () => {
           <Loader></Loader>
         ) : !isTestStarted ? (
           <Card
+            listLength={wordList.length}
             props={wordList[word]}
             word={word}
             setWord={setWord}
@@ -98,6 +102,7 @@ const Learning = () => {
         ) : (
           <HiriganaToEnglishCard
             props={wordList[word]}
+            listLength={wordList.length}
             word={word}
             setWord={setWord}
             finishTest={finishTest}

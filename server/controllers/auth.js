@@ -50,16 +50,27 @@ export const login = async (req, res) => {
 
 export const update_words = async (req, res) => {
   try {
-    let { wrongWords, score, learnedWords, username } = req.body;
+    let { hardWords, points, learnedWords, username } = req.body;
     let user = await User.findOne({ username: username})
     if (!user) return res.status(400).json({message: "User does not exist"})
+    console.log("1")
     user.learnedWords = [...user.learnedWords, ...learnedWords]
-    user.hardWords = [...user.hardWords, ...wrongWords];
-    user.points = user.points += score;
+    console.log("2")
+
+    user.hardWords = [...user.hardWords, ...hardWords];
+    console.log("3")
+
+    user.points += points;
+    console.log("4")
+
     await user.save();
+    console.log("5")
+    console.log(user)
     res.status(200).json({ message: "success", user });
   } catch (error) {
     res.status(500).json(error);
+    console.log(error);
+
   }
 };
 

@@ -49,7 +49,7 @@ const Profile = () => {
         <p className={pStyle}>Score: {user?.points}</p>
       </div>
       <div className="flex flex-wrap sm:gap-8 gap-2 justify-center">
-        <Link className={`${btn_class}`}>
+        <Link to={"/review/hard"} className={`${btn_class}`}>
           <div className="absolute p-2 flex h-full w-full justify-center">
             <p className="absolute  w-full text-center rounded-2xl top-0 px-2">
               Review hard
@@ -61,7 +61,7 @@ const Profile = () => {
             />
           </div>
         </Link>
-        <Link className={`${btn_class}`}>
+        <Link to={"/review/learned"} className={`${btn_class}`}>
           <div className="absolute p-2 flex h-full w-full justify-center">
             <p className="absolute  w-full text-center rounded-2xl top-0 px-2">
               Review learned
@@ -73,7 +73,7 @@ const Profile = () => {
             />
           </div>
         </Link>
-        <Link className={`${btn_class}`}>
+        <Link to={"/allWords"} className={`${btn_class}`}>
           <div className="absolute p-2 flex h-full w-full justify-center">
             <p className="absolute  w-full text-center rounded-2xl top-0 px-2">
               View words

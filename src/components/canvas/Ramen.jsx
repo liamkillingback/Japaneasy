@@ -5,7 +5,7 @@ import { OrbitControls, Preload, useGLTF } from "@react-three/drei";
 import CanvasLoader from "../Loader";
 
 const Ramen = () => {
-  const ramen = useGLTF("./room/scene.gltf");
+  const ramen = useGLTF("/room/scene.gltf");
 
   return (
     <primitive

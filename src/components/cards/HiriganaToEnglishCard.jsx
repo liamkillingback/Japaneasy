@@ -4,6 +4,8 @@ import { toRomaji } from "wanakana";
 import { correct, wrong } from "../../assets";
 
 const HiriganaToEnglish = (data) => {
+  let length = data.listLength
+  console.log(length)
   let winAudio = new Audio(correct);
   let wrongAudio = new Audio(wrong);
   winAudio.volume = 0.4;
@@ -112,7 +114,7 @@ const HiriganaToEnglish = (data) => {
           onClick={() => {
             {
               data.setWrongWords([...data.wrongWords, japanese_elements]);
-              (data.word + 1) % 5 !== 0 && data.setWord((data.word + 1) % 5);
+              (data.word + 1) % length !== 0 && data.setWord((data.word + 1) % length);
               wrongAudio.play();
             }
           }}
